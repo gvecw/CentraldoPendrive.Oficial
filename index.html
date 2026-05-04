@@ -5,18 +5,21 @@
 <head>
 <script>
   window.pixelId = "69f146a29843295be6ac631e";
-  window.utmify = window.utmify || function() {
-    (window.utmify.q = window.utmify.q || []).push(arguments);
-  };
-  window.utmify('track', 'PageView');
-  window.utmify('track', 'ViewContent', {
-    content_name: 'Coleção Digital Flashback - Anos 70, 80 e 90',
-    currency: 'BRL',
-    value: 10.00
-  });
   var a = document.createElement("script");
   a.setAttribute("async", "");
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  a.onload = function() {
+    try {
+      window.utmify('track', 'PageView');
+      window.utmify('track', 'ViewContent', {
+        content_name: 'Coleção Digital Flashback - Anos 70, 80 e 90',
+        currency: 'BRL',
+        value: 10.00
+      });
+    } catch(e) {
+      console.error('Utmify error:', e);
+    }
+  };
   document.head.appendChild(a);
 </script>
 
